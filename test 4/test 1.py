@@ -56,6 +56,6 @@ match is_contact:
         exit()
 
 print("Suggested sports: ")
-for item in sports[is_teams][is_outdoor][is_contact]:
+for item in sports.get(is_teams,{}).get(is_outdoor,{}).get(is_contact,[]):
     print(item)
 
