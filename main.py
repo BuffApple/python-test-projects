@@ -45,6 +45,18 @@ def calculate_total_spending(expenses: list[dict[str,float | int| str]]) -> floa
         total+=expense["amount"]
     return total
 
+def summerize_by_category(expenses: list[dict[str,float | int| str]]) -> dict[str,int | float]:
+    categories = {}
+
+    for expense in expenses:
+        category = expense["category"]
+        amount = expense["amount"]
+        if isinstance(amount,int | float):
+            categories[category] = categories.get(category,0.0) + amount
+
+    return categories
+
+
 
 expenses = [{
     "description": "Groceries",
@@ -55,3 +67,4 @@ expenses = [{
     "amount": 25.50,
     "category": "Food"}]
 
+print(summerize_by_category())
