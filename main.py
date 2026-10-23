@@ -39,7 +39,11 @@ def display_expenses(expenses: list[dict[str,float | int| str]]) -> None:
     category: {category}\n""")
         num+=1
 
-
+def calculate_total_spending(expenses: list[dict[str,float | int| str]]) -> float | int:
+    total = 0.0
+    for expense in expenses:
+        total+=expense["amount"]
+    return total
 
 
 expenses = [{
